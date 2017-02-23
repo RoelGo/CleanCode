@@ -1,9 +1,9 @@
 package com.cegekaschool.domain;
 
 import com.cegekaschool.domain.customer.Customer;
-import com.cegekaschool.domain.customer.CustomerDTO;
+import com.cegekaschool.domain.customer.CustomerDataTransferObject;
 import com.cegekaschool.domain.loyaltycard.LoyaltyCard;
-import com.cegekaschool.domain.loyaltycard.LoyaltyCardDTO;
+import com.cegekaschool.domain.loyaltycard.LoyaltyCardDataTransferObject;
 
 import javax.inject.Named;
 
@@ -12,11 +12,11 @@ import javax.inject.Named;
  */
 @Named
 public class Mapper {
-    public Customer mapToCustomer(CustomerDTO customer) {
+    public Customer mapToCustomer(CustomerDataTransferObject customer) {
         return new Customer(mapToLoyaltyCard(customer.getLoyaltyCard()), customer.getName());
     }
 
-    private LoyaltyCard mapToLoyaltyCard(LoyaltyCardDTO loyaltyCard) {
+    private LoyaltyCard mapToLoyaltyCard(LoyaltyCardDataTransferObject loyaltyCard) {
         return new LoyaltyCard(loyaltyCard.getBarcode(),loyaltyCard.getBonusPoints());
     }
 

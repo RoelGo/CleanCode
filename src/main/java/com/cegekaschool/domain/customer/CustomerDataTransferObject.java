@@ -1,26 +1,23 @@
 package com.cegekaschool.domain.customer;
 
-import com.cegekaschool.domain.loyaltycard.LoyaltyCard;
-import com.cegekaschool.domain.loyaltycard.LoyaltyCardDTO;
-
-import java.util.UUID;
+import com.cegekaschool.domain.loyaltycard.LoyaltyCardDataTransferObject;
 
 /**
  * Created by roelg on 23/02/2017.
  */
-public class CustomerDTO {
-    LoyaltyCardDTO loyaltyCard;
+public class CustomerDataTransferObject {
+    LoyaltyCardDataTransferObject loyaltyCard;
     private String name;
 
-    public CustomerDTO() {
+    public CustomerDataTransferObject() {
     }
 
-    public CustomerDTO(LoyaltyCardDTO loyaltyCard, String name) {
+    public CustomerDataTransferObject(LoyaltyCardDataTransferObject loyaltyCard, String name) {
         this.loyaltyCard = loyaltyCard;
         this.name = name;
     }
 
-    public LoyaltyCardDTO getLoyaltyCard() {
+    public LoyaltyCardDataTransferObject getLoyaltyCard() {
         return loyaltyCard;
     }
 
@@ -33,7 +30,7 @@ public class CustomerDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CustomerDTO that = (CustomerDTO) o;
+        CustomerDataTransferObject that = (CustomerDataTransferObject) o;
 
         if (loyaltyCard != null ? !loyaltyCard.equals(that.loyaltyCard) : that.loyaltyCard != null) return false;
         return name != null ? name.equals(that.name) : that.name == null;

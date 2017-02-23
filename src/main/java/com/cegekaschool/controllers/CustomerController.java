@@ -1,13 +1,11 @@
 package com.cegekaschool.controllers;
 
 import com.cegekaschool.domain.customer.Customer;
-import com.cegekaschool.domain.customer.CustomerDTO;
+import com.cegekaschool.domain.customer.CustomerDataTransferObject;
 import com.cegekaschool.domain.customer.CustomerService;
+import com.cegekaschool.domain.groceries.Grocery;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,7 +23,7 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public void createCustomer(@RequestBody CustomerDTO customer) {
+    public void createCustomer(@RequestBody CustomerDataTransferObject customer) {
         customerService.addCustomer(customer);
     }
 
@@ -33,6 +31,13 @@ public class CustomerController {
     @ResponseBody
     public Iterable<Customer> getCustomers() {
         return customerService.getAllCustomers();
+    }
+
+
+    @RequestMapping(path = "/groceries",method = RequestMethod.POST)
+    @ResponseBody
+    public void addGrocerieToCustomer(@RequestParam(name = "item")Grocery grocery, @RequestParam(name = "customerName" customerName) String customerName){
+        customerService.addGroceryToCustomer(grocery,customerName);
     }
 
 

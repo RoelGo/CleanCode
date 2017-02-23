@@ -5,15 +5,15 @@ import java.util.UUID;
 /**
  * Created by roelg on 23/02/2017.
  */
-public class LoyaltyCardDTO {
+public class LoyaltyCardDataTransferObject {
 
     String barcode;
     double bonusPoints;
 
-    public LoyaltyCardDTO() {
+    public LoyaltyCardDataTransferObject() {
     }
 
-    public LoyaltyCardDTO(String barcode, double bonusPoints) {
+    public LoyaltyCardDataTransferObject(String barcode, double bonusPoints) {
         this.barcode = barcode;
         this.bonusPoints = bonusPoints;
     }

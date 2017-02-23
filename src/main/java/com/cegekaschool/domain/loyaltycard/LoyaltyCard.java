@@ -1,5 +1,6 @@
 package com.cegekaschool.domain.loyaltycard;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
@@ -10,6 +11,7 @@ import java.util.UUID;
 @Entity
 public class LoyaltyCard {
     @Id
+    @Column(name = "loyaltyCardID")
     String uuid;
     String barcode;
     double bonusPoints;
