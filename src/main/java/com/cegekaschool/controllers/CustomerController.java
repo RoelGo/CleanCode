@@ -25,7 +25,7 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public void createCustomer(@RequestBody Customer customer) {
+    public void createCustomer(@RequestBody CustomerDTO customer) {
         customerService.addCustomer(customer);
     }
 
