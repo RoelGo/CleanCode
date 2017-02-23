@@ -30,13 +30,16 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Iterable<Customer> getCustomers() {
+
         return customerService.getAllCustomers();
     }
 
 
     @RequestMapping(path = "/groceries",method = RequestMethod.POST)
     @ResponseBody
-    public void addGrocerieToCustomer(@RequestParam(name = "item")Grocery grocery, @RequestParam(name = "customerName" customerName) String customerName){
+    public void addGrocerieToCustomer(
+            @RequestParam(name = "item")Grocery grocery,
+            @RequestParam(name = "customerName") String customerName){
         customerService.addGroceryToCustomer(grocery,customerName);
     }
 
