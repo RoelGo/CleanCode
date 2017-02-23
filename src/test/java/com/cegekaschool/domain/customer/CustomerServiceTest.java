@@ -1,5 +1,7 @@
 package com.cegekaschool.domain.customer;
 
+import com.cegekaschool.domain.Mapper;
+import com.cegekaschool.domain.loyaltycard.LoyaltyCardDataTransferObject;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -22,10 +24,15 @@ public class CustomerServiceTest {
     @Mock
     private CustomerRepository customerRepository;
 
+    @Mock
+    private Mapper map;
+
+
     @Test
     public void addCustomer_ShouldCallCustomerRepository() throws Exception {
-        customerService.addCustomer(new CustomerDataTransferObject());
-        verify(customerRepository).save(new Customer());
+        customerService.addCustomer(new CustomerDataTransferObject(new LoyaltyCardDataTransferObject("bar",20),"xan"));
+        Customer customer= map.mapToCustomer(new CustomerDataTransferObject(new LoyaltyCardDataTransferObject("bar",20),"xan"));
+        verify(customerRepository).save(customer);
     }
 
     @Test

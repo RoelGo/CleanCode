@@ -30,7 +30,6 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Iterable<Customer> getCustomers() {
-
         return customerService.getAllCustomers();
     }
 

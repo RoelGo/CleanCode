@@ -26,7 +26,6 @@ public class CustomerService {
     }
 
     public void addGroceryToCustomer(Grocery grocery, String customerName) {
-
         Customer customerToAddTo = customerRepository.findOne(customerName);
         customerToAddTo.addGrocery(grocery);
     }
